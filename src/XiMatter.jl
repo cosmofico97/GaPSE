@@ -20,7 +20,7 @@
 
 function ξ_from_PS(f_in;
      int_k_min::Float64 = 1e-3, int_k_max::Float64 = 1e1,
-     L::Integer = 0, N::Integer = 1024, pr::Bool = true,
+     L::Int = 0, N::Int = 1024, pr::Bool = true,
      s0::Union{Nothing,Float64} = nothing,
      right::Union{Float64,Nothing} = nothing)
 
@@ -43,7 +43,7 @@ end
 function ξ_from_PS(ks, pks;
      int_k_min::Float64 = 1e-3, int_k_max::Float64 = 1e1,
      epl::Bool = true,
-     N_left::Integer = 12, N_right::Integer = 12,
+     N_left::Int = 12, N_right::Int = 12,
      p0_left = [1.0, 1.0], p0_right = [-2.0, 1.0],
      kwargs...)
 
@@ -84,7 +84,7 @@ end
 
 
 function print_ξ_from_PS(input::String, out::String;
-     L::Integer = 0, N::Integer = 1024,
+     L::Int = 0, N::Int = 1024,
      pr::Bool = true, kwargs...)
 
      check_parent_directory(out)
@@ -124,7 +124,7 @@ function print_ξ_from_PS(input::String, out::String;
 end
 
 function print_ξ_from_PS(ks, pks, out::String;
-     L::Integer=0, N::Integer=1024,
+     L::Int=0, N::Int=1024,
      pr::Bool=true, kwargs...)
 
      check_parent_directory(out)

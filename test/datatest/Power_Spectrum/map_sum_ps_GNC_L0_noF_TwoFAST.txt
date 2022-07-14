@@ -7,11 +7,12 @@
 # from the file: ../test/datatest/Power_Spectrum/map_sum_xi_GNC_L0_noF.txt
 #
 # For this PS_multipole computation we set: 
-# 	 #points used in Fourier transform N = 300
+# 	 #points used in Fourier transform N = 113
 # 	 multipole degree in consideration L = 0
-# overall computational time needed (in s) : 0.0673
+# overall computational time needed (in s) : 0.1895
 # kwards passed to "print_all_PS_multipole": 
 # 		p0_right = [-2.0, 1.0]
+# 		N = 300
 # 		int_s_max = 10000.0
 # 		epl = true
 # 		N_right = 12

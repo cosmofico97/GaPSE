@@ -42,7 +42,7 @@ const DEFAULT_IPS_OPTS = Dict(
 
 """
      const DEFAULT_IPSTOOLS_OPTS = Dict(
-          :N => 1024::Integer,
+          :N => 1024::Int,
           :fit_min => 0.05::Float64,
           :fit_max => 0.5::Float64,
           :con => true::Bool,
@@ -59,7 +59,7 @@ See also: [`CosmoParams`](@ref), [`Cosmology`](@ref), [`IPSTools`](@ref)
 const DEFAULT_IPSTOOLS_OPTS = Dict(
      :fit_min => 0.05::Float64,
      :fit_max => 0.5::Float64,
-     :N => 1024::Integer,
+     :N => 1024::Int,
      :con => true::Bool,
      :k_min => 1e-6::Float64,
      :k_max => 10.0::Float64,

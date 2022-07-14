@@ -311,8 +311,9 @@ struct Cosmology
           windowFintegrated = isnothing(file_IntwindowF) ?
                               WindowFIntegrated(s_min, s_max, windowF; params.WFI...) :
                               WindowFIntegrated(file_IntwindowF)
-          WFI_norm = sum([spline_integrF(0, μ, windowFintegrated) 
-               for μ in range(-0.90, 0.90, length=100)]) / 100
+          #WFI_norm = sum([spline_integrF(0, μ, windowFintegrated) 
+          #     for μ in range(-0.90, 0.90, length=100)]) / 100
+          WFI_norm = quadgk(μ->spline_integrF(10.0, μ, windowFintegrated), -1, 1; rtol=1e-2)[1]/2
 
           new(
                IPS,

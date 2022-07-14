@@ -42,7 +42,6 @@ include("TEST_DATA.jl")
 ##########################################################################################92
 
 
-
 @testset "test MathUtils" begin
      include("test_MathUtils.jl")
 end
@@ -86,6 +85,7 @@ end
 @testset "test PowerSpectrum" begin
      include("test_PowerSpectrum.jl")
 end
+
 
 
 ################################### COSMOLOGY IMPLEMENTATION #############################92
@@ -184,8 +184,8 @@ end
      include("test_XiMatter.jl")
 end
 
-@testset "test PPXiMatter" begin
-     include("test_PPXiMatter.jl")
+@testset "test PPXiGalaxies" begin
+     include("test_PPXiGalaxies.jl")
 end
 
 

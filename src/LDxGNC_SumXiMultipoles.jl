@@ -65,7 +65,7 @@ end
           cosmo::Cosmology,
           v_ss = nothing;
           s1 = nothing,
-          N_log::Integer = 1000,
+          N_log::Int = 1000,
           kwargs...) ::Tuple{Vector{Float64}, Vector{Float64}, Vector{Vector{Float64}}}
 
 Evaluate the multipole of order `L` of all the GR effects TPCF multipoles and their sum
@@ -83,7 +83,7 @@ each of them. They are currently:
 - `s1 = nothing` : comoving distance from the observer where the TPCF should be evaluated;
   if `s1 = nothing`, it is automatically set `s1 = cosmo.s_eff` from the given input `Cosmology`.
 
-- `N_log::Integer = 1000` : number of points to be used in the default logaritmically-spaced 
+- `N_log::Int = 1000` : number of points to be used in the default logaritmically-spaced 
   range for `v_ss`, i.e. `range(0, 3, N_log)`; it is ignored if `v_ss ≠ nothing` 
 
 - `kwards...` : all these keyword arguments will be passed to `map_ξ_LDxGNC_multipole`
@@ -104,7 +104,7 @@ See also: [`map_ξ_LDxGNC_multipole`](@ref),
 function map_sum_ξ_LDxGNC_multipole(
      cosmo::Cosmology,
      v_ss = nothing;
-     N_log::Integer = 1000,
+     N_log::Int = 1000,
      sum_xi::Bool = true,
      kwargs...)
 
@@ -133,8 +133,8 @@ end
           out::String,
           v_ss = nothing;
           s1 = nothing,
-          N_log::Integer = 1000,
-          L::Integer = 0,
+          N_log::Int = 1000,
+          L::Int = 0,
           single::Bool = true,
           kwargs...) 
 
@@ -154,10 +154,10 @@ each of them. They are currently:
 - `s1 = nothing` : comoving distance from the observer where the TPCF should be evaluated;
   if `s1 = nothing`, it is automatically set `s1 = cosmo.s_eff` from the given input `Cosmology`.
 
-- `N_log::Integer = 1000` : number of points to be used in the default logaritmically-spaced 
+- `N_log::Int = 1000` : number of points to be used in the default logaritmically-spaced 
   range for `v_ss`, i.e. `range(0, 3, N_log)`; it is ignored if `v_ss ≠ nothing` 
 
-- `L::Integer = 0`: order of the Legendre polynomial to be used
+- `L::Int = 0`: order of the Legendre polynomial to be used
 
 - `single::Bool = true` : if `true`, all the CFs are printed inside the file of the sum, in a 
   table with 18 columns (first one for `v_ss`, second for their sum an the next 16 for each effect).
@@ -176,7 +176,7 @@ function print_map_sum_ξ_LDxGNC_multipole(
      out::String,
      v_ss = nothing;
      s1 = nothing,
-     L::Integer = 0,
+     L::Int = 0,
      single::Bool = true,
      sum_xi::Bool = true,
      pr::Bool = true,

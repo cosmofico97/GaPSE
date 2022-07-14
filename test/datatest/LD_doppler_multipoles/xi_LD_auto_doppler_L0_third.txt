@@ -7,10 +7,10 @@
 # concerning the luminosity distance perturbations.
 # The Cosmology considered had the following paremeters:
 # 
-# - Matter Power Spectrum input file: "../test/datatest/file_pk.txt"
-# - Background data input file: "../test/datatest/WideA_ZA_background.dat"
-# - F window function input file: "../test/datatest/F_REFERENCE_pi2.txt"
-# - Integrated F window function input file: "../test/datatest/IntegrF_REFERENCE_pi2.txt"
+# - Matter Power Spectrum input file: "/Users/matteofoglieni/AAA_TESI_MAGISTRALE/GaPSE/test/datatest/file_pk.txt"
+# - Background data input file: "/Users/matteofoglieni/AAA_TESI_MAGISTRALE/GaPSE/test/datatest/WideA_ZA_background.dat"
+# - F window function input file: "/Users/matteofoglieni/AAA_TESI_MAGISTRALE/GaPSE/test/datatest/F_REFERENCE_pi2.txt"
+# - Integrated F window function input file: "/Users/matteofoglieni/AAA_TESI_MAGISTRALE/GaPSE/test/datatest/IntegrF_REFERENCE_pi2.txt"
 #
 # - Basic CosmoParams considered: 
 #	 z_min = 0.05 	 z_max = 0.2
@@ -43,7 +43,7 @@
 # 	 σ_3 = 3735.1226181519773
 # 	 (where σ_i = \int_{k_{min}}^{k_{max}}\frac{dq}{2 π^2} q^{2-i} P(q))
 # 
-# computational time needed (in s) : 0.0297
+# computational time needed (in s) : 0.0485
 # kwards passed: 
 # 		L = 0
 # 		μ_atol = 0.0

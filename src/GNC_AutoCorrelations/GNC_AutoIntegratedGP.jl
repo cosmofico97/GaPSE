@@ -88,7 +88,7 @@ end
 
 
 function ξ_GNC_IntegratedGP(P1::Point, P2::Point, y, cosmo::Cosmology;
-     en::Float64 = 1e10, N_χs_2::Integer = 100)
+     en::Float64 = 1e10, N_χs_2::Int = 100)
 
      #adim_χs = range(1e-12, 1, N_χs)
      #Δχ_min = func_Δχ_min(s1, s2, y; frac = frac_Δχ_min)
@@ -140,7 +140,7 @@ end
 """
      ξ_GNC_IntegratedGP(P1::Point, P2::Point, y, cosmo::Cosmology; 
           en::Float64 = 1e10,
-          N_χs::Integer = 100) :: Float64
+          N_χs::Int = 100) :: Float64
 
      ξ_GNC_IntegratedGP(s1, s2, y, cosmo::Cosmology; kwargs...) = 
           ξ_GNC_IntegratedGP(Point(s1, cosmo), Point(s2, cosmo), y, cosmo; kwargs...)
@@ -190,7 +190,7 @@ the integrand function `integrand_ξ_GNC_Lensing`.
 - `en::Float64 = 1e10`: just a float number used in order to deal better 
   with small numbers.
 
-- `N_χs::Integer = 100`: number of points to be used for sampling the integral
+- `N_χs::Int = 100`: number of points to be used for sampling the integral
   along the ranges `(0, s1)` (for `χ1`) and `(0, s1)` (for `χ2`); it has been checked that
   with `N_χs ≥ 50` the result is stable.
 

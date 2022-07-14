@@ -110,7 +110,7 @@ end
 
 """
      ξ_LD_Lensing_LocalGP(s1, s2, y, cosmo::Cosmology;
-          en::Float64 = 1e6, N_χs::Integer = 100):: Float64
+          en::Float64 = 1e6, N_χs::Int = 100):: Float64
 
 Return the Lensing-LocalGP cross-correlation function 
 ``\\xi^{\\kappa \\phi} (s_1, s_2, \\cos{\\theta})`` concerning the perturbed
@@ -156,7 +156,7 @@ the integrand function `integrand_ξ_LD_Lensing_LocalGP`.
 - `en::Float64 = 1e6`: just a float number used in order to deal better 
   with small numbers;
 
-- `N_χs::Integer = 100`: number of points to be used for sampling the integral
+- `N_χs::Int = 100`: number of points to be used for sampling the integral
   along the ranges `(0, s1)` (for `χ1`) and `(0, s1)` (for `χ2`); it has been checked that
   with `N_χs ≥ 50` the result is stable.
 
@@ -165,7 +165,7 @@ See also: [`integrand_ξ_LD_Lensing_LocalGP`](@ref), [`int_on_mu_Lensing_LocalGP
 [`integral_on_mu`](@ref), [`ξ_LD_multipole`](@ref)
 """
 function ξ_LD_Lensing_LocalGP(s1, s2, y, cosmo::Cosmology;
-     en::Float64 = 1e6, N_χs::Integer = 100)
+     en::Float64 = 1e6, N_χs::Int = 100)
 
      adim_χs = range(1e-6, 1.0, N_χs)
      χ1s = adim_χs .* s1

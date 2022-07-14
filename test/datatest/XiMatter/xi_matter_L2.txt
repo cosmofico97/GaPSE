@@ -2,12 +2,12 @@
 #    GaPSE    #
 ############### 
 #
-# Two-Point Correlation Function computation of the file: "../test/datatest/file_pk.txt"
+# Two-Point Correlation Function computation of the file: "/Users/matteofoglieni/AAA_TESI_MAGISTRALE/GaPSE/test/datatest/file_pk.txt"
 #
 # For this TPCF computation we set: 
 # 	 #points used in Fourier transform N = 300
 # 	 multipole degree in consideration L = 2
-# computational time needed (in s) : 0.0168
+# computational time needed (in s) : 0.0191
 # kwards passed to "print_ξ_from_PS": 
 # 		int_k_min = 0.0001
 # 		p0_right = [-2.0, 1.0]

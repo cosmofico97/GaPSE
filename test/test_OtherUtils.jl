@@ -172,6 +172,21 @@ end
           end
           println(io, "13 14 ")
      end
-     @test_throws ErrorException GaPSE.check_fileisingroup(name, "generic")
+
+     @test_throws AssertionError GaPSE.check_fileisingroup(name, "generic")
      rm(name)
+end
+
+
+##########################################################################################92
+
+
+@testset "test number_to_string" begin
+     @test GaPSE.number_to_string(3) == "3"
+     @test GaPSE.number_to_string(-2.15) == "-2.15"
+     @test GaPSE.number_to_string(2.15 * im) == "2.15im"
+     @test GaPSE.number_to_string(0.0 + 2.15 * im) == "2.15im"
+     @test GaPSE.number_to_string(-0.0 - 2.15 * im) == "-2.15im"
+     @test GaPSE.number_to_string(-3.1415 - 2.15 * im) == "-3.1415-2.15im"
+     @test GaPSE.number_to_string(3.1415 +   2.15 * im) == "3.1415+2.15im"
 end

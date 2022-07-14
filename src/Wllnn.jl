@@ -18,7 +18,7 @@
 #
 
 #=
-function my_Plm(l::Integer, m::Integer, x)
+function my_Plm(l::Int, m::Int, x)
      @assert l ≥ 0 " l ≥ 0 must hold, while $l does not!"
      @assert l ≥ abs(m) " l ≥ |m| must hold, while $l and $m do not!"
      if m ≥ 0
@@ -31,7 +31,7 @@ end;
 
 
 """
-     Aabcd(θ_max, a::Integer, b::Integer, c::Integer, d::Integer; kwargs...)
+     Aabcd(θ_max, a::Int, b::Int, c::Int, d::Int; kwargs...)
 
 Calculates the following expression:
 
@@ -49,12 +49,12 @@ Calculates the following expression:
 
 The integral is performed thanks to `quadgk`; all the `kwargs...` are passed to that function.
 """
-function Aabcd(θ_max, a::Integer, b::Integer, c::Integer, d::Integer; kwargs...)
+function Aabcd(θ_max, a::Int, b::Int, c::Int, d::Int; kwargs...)
      quadgk(x -> my_Plm(a, c, x) * my_Plm(b, d, x), cos(θ_max), 1; kwargs...)[1]
 end
 
 
-function vec_index_Aabcd(l::Integer)
+function vec_index_Aabcd(l::Int)
      @assert l ≥ 0 " l ≥ 0 must hold!"
      matr = [[0, 0, 0, 0] for i in 1:(l+1)^4]
      i = 1
@@ -73,7 +73,7 @@ end
 
 
 
-function Wnnll(θ_max::Float64, n1::Integer, n2::Integer, l3::Integer, l4::Integer;
+function Wnnll(θ_max::Float64, n1::Int, n2::Int, l3::Int, l4::Int;
      rtol=1e-2, kwargs...)
 
      vec_indexes_A = vec_index_Aabcd(max(n1, n2, l3, l4))
@@ -99,7 +99,7 @@ function Wnnll(θ_max::Float64, n1::Integer, n2::Integer, l3::Integer, l4::Integ
 end
 
 function Wnnll(dict_i_A::Dict{Vector{Int64},Float64},
-     n1::Integer, n2::Integer, l3::Integer, l4::Integer)
+     n1::Int, n2::Int, l3::Int, l4::Int)
      16 * π^4 * sum(
           [
           begin
@@ -180,9 +180,9 @@ end
 
 
 """
-     Wnnll(θ_max, n1::Integer, n2::Integer, l3::Integer, l4::Integer; kwargs...)
+     Wnnll(θ_max, n1::Int, n2::Int, l3::Int, l4::Int; kwargs...)
      Wnnll(dict_i_A::Dict{Vector{Int64},Float64},
-          n1::Integer, n2::Integer, l3::Integer, l4::Integer)
+          n1::Int, n2::Int, l3::Int, l4::Int)
      Wnnll(θ_max::Float64, indexes::Vector{Vector{Int64}};
           rtol=1e-2, kwargs...)
      Wnnll(dict_i_A::Dict{Vector{Int64},Float64},

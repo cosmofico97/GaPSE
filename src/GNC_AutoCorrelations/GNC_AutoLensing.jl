@@ -156,7 +156,7 @@ end
 
 
 function ξ_GNC_Lensing(P1::Point, P2::Point, y, cosmo::Cosmology;
-     en::Float64 = 1e6, N_χs_2::Integer = 100, Δχ_min::Float64 = 1e-4)
+     en::Float64 = 1e6, N_χs_2::Int = 100, Δχ_min::Float64 = 1e-4)
 
      χ1s = P1.comdist .* range(1e-6, 1, length = N_χs_2)
      χ2s = P2.comdist .* range(1e-6, 1, length = N_χs_2 + 7)
@@ -186,7 +186,7 @@ end
      ξ_GNC_Lensing(P1::Point, P2::Point, y, cosmo::Cosmology;
           en::Float64 = 1e6,
           Δχ_min::Float64 = 1e-3,
-          N_χs::Integer = 100) :: Float64
+          N_χs::Int = 100) :: Float64
 
      ξ_GNC_Lensing(s1, s2, y, cosmo::Cosmology; kwargs...) = 
           ξ_GNC_Lensing(Point(s1, cosmo), Point(s2, cosmo), y, cosmo; kwargs...)
@@ -260,7 +260,7 @@ the integrand function `integrand_ξ_GNC_Lensing`.
   as the result of the parenthesis instead of calculating it in the normal way; it prevents
   computational divergences.
 
-- `N_χs::Integer = 100`: number of points to be used for sampling the integral
+- `N_χs::Int = 100`: number of points to be used for sampling the integral
   along the ranges `(0, s1)` (for `χ1`) and `(0, s1)` (for `χ2`); it has been checked that
   with `N_χs ≥ 50` the result is stable.
 

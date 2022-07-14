@@ -34,7 +34,7 @@ function derivate_point(xp, yp, x1, y1, x2, y2)
      return res
 end
 
-function derivate_vector(XS, YS; N::Integer=1)
+function derivate_vector(XS, YS; N::Int=1)
      @assert length(XS) == length(YS) "xs and ys must have the same length!"
      @assert length(YS) > 2 * N "length of xs and ys must be > 2N !"
 
@@ -63,7 +63,7 @@ function derivate_vector(XS, YS; N::Integer=1)
 end
 
 
-function spectral_index(xs, ys; N::Integer=1, con=false)
+function spectral_index(xs, ys; N::Int=1, con=false)
      derivs = derivate_vector(xs, ys; N=N)
 
      if con == false
@@ -87,7 +87,7 @@ end
 
 
 """
-     mean_spectral_index(xs, ys; N::Integer = 1, con = false)
+     mean_spectral_index(xs, ys; N::Int = 1, con = false)
 
 Assuming that the input `ys` follow a power law distribution, 
 return the mean spectral index ``\\langle S \\rangle`` of them.
@@ -99,7 +99,7 @@ defined as:
           = \\frac{x}{f(x)} \\frac{\\partial f(x)}{\\partial x} 
 ```
 """
-function mean_spectral_index(xs, ys; N::Integer=1, con=false)
+function mean_spectral_index(xs, ys; N::Int=1, con=false)
      @assert length(xs) > 2 * N + 2 "length of xs and ys must be > 2N+2"
      vec = spectral_index(xs, ys; N=N, con=con)[begin+N+1:end-N-1]
      return sum(vec) / length(vec)
@@ -549,14 +549,14 @@ coefficients `l_si`, `l_b` and `l_a` for `x < left` and the "right" ones `r_si`,
 ## Constructors
 
 `EPLs(xs, ys, p0_left::Vector{T1}, p0_right::Vector{T2}; 
-     N_left::Integer = 15, N_right::Integer = 15) where {T1<:Real, T2 <:Real}
+     N_left::Int = 15, N_right::Int = 15) where {T1<:Real, T2 <:Real}
 
 - `xs` and `ys`: the input vector of values. 
 
-- `N_left::Integer = 15` : number of points to be used from the left edge for the left power law-fitting.
+- `N_left::Int = 15` : number of points to be used from the left edge for the left power law-fitting.
   It shouldn't be too low (< 4) or too high (>100).
 
-- `N_right::Integer = 15` : number of points to be used from the right edge for the right power law-fitting.
+- `N_right::Int = 15` : number of points to be used from the right edge for the right power law-fitting.
   It shouldn't be too low (< 4) or too high (>100).
 
 - `p0_left::Vector{T1} where T1 <:Real` : vector with the initial values for the left power-law fitting; its length must
@@ -601,7 +601,7 @@ struct EPLs
 
 
      function EPLs(xs, ys, p0_left::Vector{T1}, p0_right::Vector{T2};
-          N_left::Integer=15, N_right::Integer=15
+          N_left::Int=15, N_right::Int=15
      ) where {T1<:Real,T2<:Real}
 
           @assert length(xs) == length(ys) "xs and ys must have same length!"
@@ -698,11 +698,11 @@ coefficients `l_si`, `l_b` and `l_a` for `x < left`)
 ## Constructors
 
 `LPLs(xs, ys, p0_left::Vector{T1}, p0_right::Vector{T2}; 
-     N_left::Integer = 15, N_right::Integer = 15) where {T1<:Real, T2 <:Real}
+     N_left::Int = 15, N_right::Int = 15) where {T1<:Real, T2 <:Real}
 
 - `xs` and `ys`: the input vector of values. 
 
-- `N_left::Integer = 15` : number of points to be used from the left edge for the left power law-fitting.
+- `N_left::Int = 15` : number of points to be used from the left edge for the left power law-fitting.
   It shouldn't be too low (< 4) or too high (>100).
 
 - `p0_left::Vector{T1} where T1 <:Real` : vector with the initial values for the left power-law fitting; its length must
@@ -735,7 +735,7 @@ struct LPLs
      spline::Dierckx.Spline1D
 
 
-     function LPLs(xs, ys, p0_left::Vector{T1}; N_left::Integer=15) where {T1<:Real}
+     function LPLs(xs, ys, p0_left::Vector{T1}; N_left::Int=15) where {T1<:Real}
 
           @assert length(xs) == length(ys) "xs and ys must have same length!"
           @assert length(p0_left) ∈ [2, 3] "length of p0_left must be 2 or 3!"
@@ -797,7 +797,7 @@ end;
 """
      polynomia(x, c, b, a) ::Float64
 
-Return the following ``y = f(x)`` 2-degree polynomial value:
+Return the following ``y = f(x)`` 2-degree `polynomi`al value:
 ```math
 y = f(x) = a + b \\, x + c \\, x^2
 ```
@@ -978,7 +978,9 @@ function curve_fit_polyn_onthree(xs, ys, p0; en_xs=1, en_ys=1, err=0.05, pr::Boo
           return c * (en_xs^2) / en_ys, b * en_xs / en_ys, a / en_ys
 
      catch e
-          if isa(AssertionError, e)
+          if e==BoundsError
+               e
+          elseif isa(AssertionError, e)
                throw(e)
           else
                println(

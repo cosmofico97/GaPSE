@@ -19,7 +19,15 @@
 
 module GaPSE
 
+
 using TwoFAST # Licence: MIT "Expat" (o GPL ?)
+using FFTW
+using Base: @kwdef
+using SpecialFunctions: gamma
+import Base: *
+
+include("FFTLog.jl")
+using .FFTLog
 
 using Dierckx # Licence: BSD
 using HCubature, QuadGK, WignerSymbols # Licence: MIT "Expat"
@@ -47,8 +55,11 @@ const NAMES_BACKGROUND = ["z", "proper time [Gyr]", "conf. time [Mpc]", "H [1/Mp
 const VALID_GROUPS = ["LD", "GNC", "GNCxLD", "LDxGNC", "generic"]
 const LENGTH_VALID_GROUPS = [18, 27, 22, 22, nothing]
 
+const HUBBLE_0 = 1e5 / 299792458.0
+
 include("OtherUtils.jl")
 include("MathUtils.jl")
+#include("FFTLog.jl")
 include("Wllnn.jl")
 include("WindowF.jl")
 include("WindowFIntegrated.jl")
@@ -58,7 +69,8 @@ include("CosmoUtils.jl")
 include("IPSTools.jl")
 include("XiMatter.jl")
 include("Cosmology.jl")
-include("PPXiMatter.jl")
+include("PPXiGalaxies.jl")
+include("PNG.jl")
 
 
 ##################### PERTURBED LUMINOSITY DISTANCE #############################
@@ -143,6 +155,8 @@ include("GNCxLD_XiMultipoles.jl")
 include("GNCxLD_SumXiMultipoles.jl")
 include("LDxGNC_XiMultipoles.jl")
 include("LDxGNC_SumXiMultipoles.jl")
+include("PS_FFTLog.jl")
+include("PS_TwoFAST.jl")
 include("PowerSpectrum.jl")
 
 

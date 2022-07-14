@@ -137,7 +137,7 @@ end
 
 """
      ξ_GNCxLD_Doppler_Lensing(s1, s2, y, cosmo::Cosmology;
-          en::Float64 = 1e6, N_χs::Integer = 100):: Float64
+          en::Float64 = 1e6, N_χs::Int = 100):: Float64
 
 Return the Lensing-Doppler cross-correlation function 
 ``\\xi^{\\kappa v_{\\parallel}} (s_1, s_2, \\cos{\\theta})`` concerning the perturbed
@@ -204,7 +204,7 @@ the integrand function `integrand_ξ_LD_GNC-LD_Doppler_Lensing`.
   as the result of the parenthesis instead of calculating it in the normal way; it prevents
   computational divergences.
 
-- `N_χs::Integer = 100`: number of points to be used for sampling the integral
+- `N_χs::Int = 100`: number of points to be used for sampling the integral
   along the ranges `(0, s1)` (for `χ2`) and `(0, s1)` (for `χ2`); it has been checked that
   with `N_χs ≥ 50` the result is stable.
 
@@ -213,7 +213,7 @@ See also: [`integrand_ξ_GNCxLD_Doppler_Lensing`](@ref), [`int_on_mu_Lensing_Dop
 [`integral_on_mu`](@ref), [`ξ_LD_multipole`](@ref)
 """
 function ξ_GNCxLD_Doppler_Lensing(s1, s2, y, cosmo::Cosmology;
-     en::Float64=1e6, N_χs::Integer=100)
+     en::Float64=1e6, N_χs::Int=100)
 
      χ2s = s2 .* range(1e-6, 1.0, length = N_χs)
 

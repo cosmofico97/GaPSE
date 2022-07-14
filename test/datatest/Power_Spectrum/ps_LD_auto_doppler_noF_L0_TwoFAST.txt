@@ -2,17 +2,18 @@
 #    GaPSE    #
 ############### 
 #
-# Power Spectrum Multipole computation of the file: "../test/datatest/Power_Spectrum/xi_LD_auto_doppler_noF_L0.txt"
+# Power Spectrum Multipole computation of the file: "/Users/matteofoglieni/AAA_TESI_MAGISTRALE/GaPSE/test/datatest/Power_Spectrum/xi_LD_auto_doppler_noF_L0.txt"
 #
 # For this PS_multipole computation we set: 
-# 	 #points used in Fourier transform N = 300
+# 	 #points used in Fourier transform N = 113
 # 	 multipole degree in consideration L = 0
-# computational time needed (in s) : 1.8495
+# computational time needed (in s) : 1.2722
 # kwards passed to "print_PS_multipole": 
 # 		p0_right = [-2.0, 1.0]
 # 		int_s_max = 10000.0
 # 		epl = true
 # 		N_right = 12
+# 		twofast = true
 # 		p0_left = [-2.0, 1.0]
 # 		int_s_min = 0.0001
 # 		N_left = 12

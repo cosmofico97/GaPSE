@@ -7,7 +7,7 @@
 # For its analytical definition, check the code.
 #
 # Parameters used in this integration map:
-# computational time (in s) : 16.465
+# computational time (in s) : 16.744
 # kwards passed: 
 # 		θ_max = 1.5707963267948966
 # 		N = 1000

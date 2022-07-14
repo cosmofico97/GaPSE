@@ -9,7 +9,7 @@
 # Parameters used in this integration map:
 # x_min = 0 	 x_max = 3 	 x_step = 0.25
 # mu_min = -1 	 mu_max = 1 	 mu_step = 0.25
-# computational time (in s) : 8.057
+# computational time (in s) : 8.182
 # kwards passed: 
 # 		θ_max = 1.5707963267948966
 # 		N = 1000

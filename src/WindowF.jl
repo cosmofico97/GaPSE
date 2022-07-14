@@ -222,7 +222,7 @@ to use this one.
 See also:  [`F_hcub`](@ref), [`map_F`](@ref), [`integrand_F`](@ref), 
 [`check_compatible_dicts`](@ref)
 """
-function F_trap(x, μ; θ_max = π/2, N::Integer=300, en=1.0, 
+function F_trap(x, μ; θ_max = π/2, N::Int=300, en=1.0, 
         tolerance = 1e-13)
     
      χ1s = θ_max .* range(0.0, 1.0, length=N)

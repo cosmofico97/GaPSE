@@ -19,7 +19,7 @@
 
 
 function integrand_ξ_GNCxLD_multipole(s1, s, μ, effect::Function, cosmo::Cosmology;
-     L::Integer=0, use_windows::Bool=true, kwargs...)
+     L::Int=0, use_windows::Bool=true, kwargs...)
 
      s2_value = s2(s1, s, μ)
      y_value = y(s1, s, μ)
@@ -58,12 +58,12 @@ end
 
 """
      integrand_ξ_GNCxLD_multipole(s1, s, μ, effect::Function, cosmo::Cosmology;
-          L::Integer = 0, 
+          L::Int = 0, 
           use_windows::Bool = true, 
           kwargs...) ::Float64
 
      integrand_ξ_GNCxLD_multipole(s1, s, μ, effect::String, cosmo::Cosmology; 
-          L::Integer = 0, 
+          L::Int = 0, 
           use_windows::Bool = true, 
           kwargs...) ::Float64
 
@@ -135,7 +135,7 @@ from `(s1, s, μ)` to `(s1, s2, y)` thorugh the functions `y` and `s2`
 
 ## Optional arguments 
 
-- `L::Integer = 0`: order of the Legendre polynomial to be used
+- `L::Int = 0`: order of the Legendre polynomial to be used
 
 - `use_windows::Bool = false`: tells if the integrand must consider the two
    window function ``\\phi`` and ``F``
@@ -158,10 +158,10 @@ integrand_ξ_GNCxLD_multipole
 
 function ξ_GNCxLD_multipole(
      s1, s, effect::Function, cosmo::Cosmology;
-     L::Integer=0,
+     L::Int=0,
      use_windows::Bool=true,
      enhancer::Float64=1e6,
-     N_μs::Integer=50,
+     N_μs::Int=50,
      μ_atol::Float64=0.0,
      μ_rtol::Float64=1e-2,
      trap::Bool=false,
@@ -211,7 +211,7 @@ end
 
 """
      ξ_GNCxLD_multipole(s1, s, effect::Function, cosmo::Cosmology; 
-          L::Integer = 0, 
+          L::Int = 0, 
           enhancer::Float64 = 1e6,
           use_windows::Bool = true,
           μ_atol::Float64 = 1e-4,
@@ -219,7 +219,7 @@ end
           kwargs...) ::Float64
 
      ξ_GNCxLD_multipole(s1, s, effect::String, cosmo::Cosmology; 
-          L::Integer = 0, 
+          L::Int = 0, 
           enhancer::Float64 = 1e6,
           use_windows::Bool = true,
           μ_atol::Float64 = 1e-4,
@@ -289,7 +289,7 @@ from `(s1, s, μ)` to `(s1, s2, y)` thorugh the functions `y` and `s2`
 
 ## Optional arguments
 
-- `L::Integer = 0`: order of the Legendre polynomial to be used
+- `L::Int = 0`: order of the Legendre polynomial to be used
 
 - `enhancer::Float64 = 1e6`: just a float number used in order to deal better with small numbers; 
   the returned value is NOT modified by this value, because after a multiplication
@@ -322,8 +322,8 @@ See also: [`integrand_ξ_GNCxLD_multipole`](@ref),
           v_ss = nothing;
           s1 = nothing,
           pr::Bool = true,
-          N_log::Integer = 1000,
-          L::Integer = 0,
+          N_log::Int = 1000,
+          L::Int = 0,
           kwargs... ) ::Tuple{Vector{Float64}, Vector{Float64}}
 
 Evaluate the multipole of order `L` of the chosen correlation function term, 
@@ -372,12 +372,12 @@ Cosmology `cosmo` through the functions `spline_F` and `ϕ` respectivelly.
 - `s1 = nothing` : comoving distance from the observer where the TPCF should be evaluated;
   if `s1 = nothing`, it is automatically set `s1 = cosmo.s_eff` from the given input `Cosmology`.
 
-- `L::Integer = 0`: order of the Legendre polynomial to be used
+- `L::Int = 0`: order of the Legendre polynomial to be used
 
 - `pr::Bool = true` : do you want the progress bar showed on screen, in order to 
   check the time needed for the computation? (`true` recommended)
 
-- `N_log::Integer = 1000` : number of points to be used in the default logaritmically-spaced 
+- `N_log::Int = 1000` : number of points to be used in the default logaritmically-spaced 
   range for `v_ss`, i.e. `range(0, 3, N_log)`; it is ignored if `v_ss ≠ nothing` 
 
 - `kwargs...` : other keyword arguments that will be passed to `ξ_GNCxLD_multipole`
@@ -397,8 +397,8 @@ function map_ξ_GNCxLD_multipole(cosmo::Cosmology,
      v_ss=nothing;
      s1=nothing,
      pr::Bool=true,
-     N_log::Integer=1000,
-     L::Integer=0,
+     N_log::Int=1000,
+     L::Int=0,
      sum_xi::Bool=false,
      kwargs...)
 

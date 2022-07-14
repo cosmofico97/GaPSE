@@ -36,7 +36,7 @@ end
 
 
 function integrated_F_trapz(s, μ, s_min, s_max, windowF::WindowF; 
-          llim = 0.0, rlim = Inf, N::Integer = 1000)
+          llim = 0.0, rlim = Inf, N::Int = 1000)
      RLIM = isinf(rlim) ? 3.0 * s_max : rlim 
      f(p) = ϕ(p, s_min, s_max) > 0 ? begin 
           spline_F(s/p, μ, windowF) * ϕ(p, s_min, s_max) * ϕ(s2(p, s, μ), s_min, s_max) * p^2
@@ -91,7 +91,7 @@ struct WindowFIntegrated
      function WindowFIntegrated(s_min, s_max, μs::Vector{Float64}, windowF::WindowF;
                ss_start = 0.0, ss_stop = 0.0, ss_step = 21.768735478453323,
                trap::Bool = true, llim = 0.0, rlim = Inf, 
-               rtol = 1e-2, atol = 0.0, N::Integer = 1000, pr::Bool = true)
+               rtol = 1e-2, atol = 0.0, N::Int = 1000, pr::Bool = true)
 
           @assert 0 < s_min < s_max " 0 < s_min < s_max must hold!"
           @assert ss_start ≥ 0.0 " ss_start ≥ 0.0 must hold!"

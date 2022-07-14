@@ -241,7 +241,7 @@ obtained from the Input Power Spectrum.
 There are two type of integrals we are interested in, and so two constructors are
 here provided:
 
-- `IntegralIPS(ips, l, n; N::Integer = 1024, kmin = 1e-4, kmax = 1e3, s0 = 1e-3,
+- `IntegralIPS(ips, l, n; N::Int = 1024, kmin = 1e-4, kmax = 1e3, s0 = 1e-3,
      fit_left_min = 2.0, fit_left_max = 10.0, p0_left = nothing, con = false,
      fit_right_min = nothing, fit_right_max = nothing, p0_right = nothing)`
   This is the one used for the "classical" ``I_\\ell_n`` integrals:
@@ -295,7 +295,7 @@ here provided:
        automatically set `p0 = [-4.0, 1.0, 0.0]`.
 
 
-- `IntegralIPS(ips, func::Function; N::Integer = 1024, kmin = 1e-4, kmax = 1e3,
+- `IntegralIPS(ips, func::Function; N::Int = 1024, kmin = 1e-4, kmax = 1e3,
      fit_left_min = 0.1, fit_left_max = 1.0, p0_left = nothing, con = false,
      fit_right_min = nothing, fit_right_max = nothing, p0_right = nothing,
      kwargs...)`
@@ -366,7 +366,7 @@ struct IntegralIPS
      r_a::Float64
      right::Float64
 
-     function IntegralIPS(ips, l, n; N::Integer = 1024, kmin = 1e-4, kmax = 1e3, s0 = 1e-3,
+     function IntegralIPS(ips, l, n; N::Int = 1024, kmin = 1e-4, kmax = 1e3, s0 = 1e-3,
           fit_left_min = 2.0, fit_left_max = 10.0, p0_left = nothing, con = false,
           fit_right_min = nothing, fit_right_max = nothing, p0_right = nothing)
 
@@ -394,7 +394,7 @@ struct IntegralIPS
           new(l_si, l_b, l_a, fit_left_min, spline, r_si, r_b, r_a, fit_right_MAX)
      end
 
-     function IntegralIPS(ips, func::Function; N::Integer = 1024, kmin = 1e-4, kmax = 1e3,
+     function IntegralIPS(ips, func::Function; N::Int = 1024, kmin = 1e-4, kmax = 1e3,
           fit_left_min = 0.1, fit_left_max = 1.0, p0_left = nothing, con = false,
           fit_right_min = nothing, fit_right_max = nothing, p0_right = nothing,
           kwargs...)
@@ -559,7 +559,7 @@ Input Power Spectrum.
 
 ## Constructors
 
-`IPSTools(ips::InputPS; N::Integer = 1024,
+`IPSTools(ips::InputPS; N::Int = 1024,
      fit_min::Float64 = 0.05, fit_max::Float64 = 0.5,
      k_min::Float64 = 1e-6, k_max::Float64 = 10.0
      con::Bool = false
@@ -567,7 +567,7 @@ Input Power Spectrum.
 
 - `ips::InputPS` : the Input Power Spectrum to be used in all the calculations.
 
-- `N::Integer = 1024` : number of points to be used in the `xicalc` function
+- `N::Int = 1024` : number of points to be used in the `xicalc` function
 
 - `k_min::Float64 = 1e-6, k_max::Float64 = 10.0` : integrations extremes of 
   the ``\\sigma_i``s
@@ -619,7 +619,7 @@ struct IPSTools
 
      function IPSTools(
           ips::InputPS;
-          N::Integer = 1024,
+          N::Int = 1024,
           fit_min::Float64 = 0.05,
           fit_max::Float64 = 0.5,
           con::Bool = false,
